@@ -9,6 +9,7 @@ const Users = (props) => {
   return (
     <Card className={styles.users}>
       <ul>{user}</ul>
+      {user.length === 0 && <p>User not Found</p>}
     </Card>
   );
 };
