@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import Card from "./UI/Card";
+import LoaderScreen from "./UI/LoaderScreen";
 import Users from "./Users";
 
 const UserFinder = (props) => {
-  const coppiedUser = [...props.usersList];
-
+  const copiedUser = [...props.usersList];
+  const [isTrue, setTrue] = useState(false);
   const [filteredUser, getFilteredUser] = useState([]);
   const [searchTerm, getSearchTerm] = useState("");
 
@@ -15,7 +16,7 @@ const UserFinder = (props) => {
   useEffect(() => {
     if (searchTerm) {
       getFilteredUser(
-        coppiedUser.filter((user) =>
+        copiedUser.filter((user) =>
           user.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
@@ -23,23 +24,28 @@ const UserFinder = (props) => {
   }, [searchTerm]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('This will run after 1 second!')
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (searchTerm === "" || searchTerm.length > 0) {
+      const delayDebounceFn = setTimeout(() => {
+        setTrue(true);
+      }, 300);
+    }
+    setTrue(false);
+  }, [searchTerm]);
 
 
-  console.log(filteredUser);
-  
+
   return (
     <Fragment>
       <Card>
         <input type="search" onChange={searchTermHandler} />
       </Card>
-      <Users
-        usersList={searchTerm === "" ? props.usersList : filteredUser}
-      ></Users>
+
+      {isTrue && (
+        <Users
+          usersList={searchTerm === "" ? props.usersList : filteredUser}
+        ></Users>
+      )}
+      {!isTrue && <LoaderScreen><h1>Searching for User.. </h1></LoaderScreen>}
     </Fragment>
   );
 };

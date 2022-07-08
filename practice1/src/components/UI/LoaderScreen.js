@@ -8,7 +8,7 @@ const Backdrop = (props) => {
 
 const Overlay = (props) => {
   return (
-    <div className={styles.modal}>
+    <div className={styles.message}>
       <div>{props.children}</div>
     </div>
   );
