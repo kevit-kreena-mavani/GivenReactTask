@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import "./App.css";
-import LoaderScreen from "./components/UI/LoaderScreen";
+import Card from "./components/UI/Card";
 import UserFinder from "./components/UserFinder";
 
 function App() {
@@ -33,12 +33,13 @@ function App() {
   return (
     <Fragment>
       {!isLoading && (
-        <UserFinder usersList={users} loader = {setIsLoading}></UserFinder>
+        <UserFinder usersList={users} loader={setIsLoading}></UserFinder>
       )}
+
       {isLoading && (
-        <LoaderScreen>
-          <h1>{message}</h1>
-        </LoaderScreen>
+        <Card>
+          <p>{message}</p>
+        </Card>
       )}
     </Fragment>
   );

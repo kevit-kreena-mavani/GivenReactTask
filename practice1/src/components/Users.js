@@ -7,10 +7,10 @@ const Users = (props) => {
     <li key={user.id}>{user.name}</li>
   ));
   return (
-    <Card className={styles.users}>
+    <div className={styles.users}>
       <ul>{user}</ul>
       {user.length === 0 && <p>User not Found</p>}
-    </Card>
+    </div>
   );
 };
 export default Users;

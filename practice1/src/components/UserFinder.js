@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import Card from "./UI/Card";
-import LoaderScreen from "./UI/LoaderScreen";
 import Users from "./Users";
 
 const UserFinder = (props) => {
@@ -25,14 +24,12 @@ const UserFinder = (props) => {
 
   useEffect(() => {
     if (searchTerm === "" || searchTerm.length > 0) {
-      const delayDebounceFn = setTimeout(() => {
+      setTimeout(() => {
         setTrue(true);
       }, 300);
     }
     setTrue(false);
   }, [searchTerm]);
-
-
 
   return (
     <Fragment>
@@ -40,12 +37,17 @@ const UserFinder = (props) => {
         <input type="search" onChange={searchTermHandler} />
       </Card>
 
-      {isTrue && (
-        <Users
-          usersList={searchTerm === "" ? props.usersList : filteredUser}
-        ></Users>
-      )}
-      {!isTrue && <LoaderScreen><h1>Searching for User.. </h1></LoaderScreen>}
+      <Card>
+        {isTrue && (
+          <Users
+            usersList={searchTerm === "" ? props.usersList : filteredUser}
+          ></Users>
+        )}
+        {!isTrue && searchTerm.trim().length > 0 && (
+          <p>Searching for users...</p>
+        )}
+      </Card>
+      
     </Fragment>
   );
 };
