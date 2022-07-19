@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 import Card from "./UI/Card";
 import Users from "./Users";
-import SearchBar from "./UI/SearchBar";
+import SearchIcon from "@mui/icons-material/Search";
+import styles from "./UserFinder.module.css";
 
 const UserFinder = (props) => {
   const copiedUser = [...props.usersList];
@@ -34,11 +35,19 @@ const UserFinder = (props) => {
 
   return (
     <Fragment>
-      {/* <Card>
-        <input type="search" onChange={searchTermHandler} />
-      </Card> */}
+      <Card>
+        <div className={styles.wrapper}>
 
-      <SearchBar onChange={searchTermHandler}></SearchBar>
+          <SearchIcon className={styles.icon}/>
+
+          <input
+            type="search"
+            onChange={searchTermHandler}
+          ></input>
+        </div>
+      </Card>
+
+      {/* <SearchBar onChange={searchTermHandler}></SearchBar> */}
 
       <Card>
         {isTrue && (
