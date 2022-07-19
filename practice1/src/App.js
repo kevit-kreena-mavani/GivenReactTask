@@ -3,11 +3,12 @@ import "./App.css";
 import Card from "./components/UI/Card";
 import UserFinder from "./components/UserFinder";
 
-function App() {
+
+function App(props) {
   const [users, getUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
-
+ 
   const fetchHandler = async () => {
     setIsLoading(true);
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <Fragment>
+
       {!isLoading && (
         <UserFinder usersList={users} loader={setIsLoading}></UserFinder>
       )}

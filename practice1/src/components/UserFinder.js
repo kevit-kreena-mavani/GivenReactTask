@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import Card from "./UI/Card";
 import Users from "./Users";
+import SearchBar from "./UI/SearchBar";
 
 const UserFinder = (props) => {
   const copiedUser = [...props.usersList];
@@ -33,9 +34,11 @@ const UserFinder = (props) => {
 
   return (
     <Fragment>
-      <Card>
+      {/* <Card>
         <input type="search" onChange={searchTermHandler} />
-      </Card>
+      </Card> */}
+
+      <SearchBar onChange={searchTermHandler}></SearchBar>
 
       <Card>
         {isTrue && (
@@ -47,7 +50,6 @@ const UserFinder = (props) => {
           <p>Searching for users...</p>
         )}
       </Card>
-      
     </Fragment>
   );
 };
