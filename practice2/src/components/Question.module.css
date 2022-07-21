@@ -1,0 +1,25 @@
+.questionForm {
+  margin: 4rem 6rem;
+  font-size: large;
+}
+.questionForm p {
+  font-size: larger;
+}
+.questionForm input {
+  margin: 1rem;
+  max-width: 100%;
+}
+
+.actions {
+  margin-top: 2rem;
+  margin-right: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.errorText {
+  color: red;
+  font-size: small;
+}
