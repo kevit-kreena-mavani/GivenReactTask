@@ -28,16 +28,28 @@ const SingleQue = (props) => {
   };
 
   const handleOnChange = (e) => {
-    fetch(
-      "https://mcqtest-project-default-rtdb.firebaseio.com/filled-answers.json",
-      {
-        method: "PATCH",
-        body: JSON.stringify({ [`question${pageIndex + 1}`]: e.target.value }),
-      }
-    );
+    // fetch(
+    //   "https://mcqtest-project-default-rtdb.firebaseio.com/filled-answers.json",
+    //   {
+    //     method: "PATCH",
+    //     body: JSON.stringify({ [`question${pageIndex + 1}`]: e.target.value }),
+    //   }
+    // );
+  
     const stateToUpdate = [...selectedAns];
     stateToUpdate[pageIndex] = e.target.value;
     setSelectedAns(stateToUpdate);
+
+    if(stateToUpdate.length === 5){
+      console.log(stateToUpdate)
+      fetch(
+        "https://mcqtest-project-default-rtdb.firebaseio.com/filled-answers.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(stateToUpdate),
+        }
+      );
+    }
   };
 
   const previousBtnHandler = () => {
