@@ -8,11 +8,12 @@ import Test from "./pages/Test";
 
 
 function App() {
-   const [userLanguage , setUserLanguage] =useState('');
+   const [userData , setUserData] =useState('');
+  
 
   const userDataHandler = (data) =>{
-    const language = data.language;
-    setUserLanguage(language)
+   
+    setUserData(data)
   }
 
   return (
@@ -21,8 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/user-detail" />} />
         <Route path="/user-detail" element={<UserDetails  onSaveUserDetails={userDataHandler}/>} />
-        <Route path="/test" element={<Test language ={userLanguage} />} />
-        <Route path="/test/submit" element={<SubmitTest />} />
+        <Route path="/test" element={<Test language ={userData.language} />} />
+        <Route path="/test/submit" element={<SubmitTest userData ={userData}/>} />
       </Routes>
     </div>
   );

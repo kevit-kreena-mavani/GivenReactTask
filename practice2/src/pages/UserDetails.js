@@ -29,7 +29,10 @@ const UserDetails = (props) => {
   };
 
   const goToTestHandler = () => {
-    navigate("/test");
+    if(isSubmit){
+      navigate("/test");
+    }
+   
   };
 
   return (
@@ -76,7 +79,7 @@ const UserDetails = (props) => {
         </div>
         <div className={styles.actions}>
           <button type="submit" >Submit</button>
-          <button type="button" onClick={goToTestHandler}>
+          <button type="button" onClick={goToTestHandler} disabled={!isSubmit}>
             Go To Test
           </button>
         </div>

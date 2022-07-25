@@ -71,8 +71,8 @@ const SingleQue = (props) => {
             <input
               type="radio"
               name="option"
-              value="optionA"
-              checked={selectedAns[pageIndex] === "optionA"}
+              value="A"
+              checked={selectedAns[pageIndex] === "A"}
               onChange={handleOnChange}
             />
             {data[pageIndex].options.a}
@@ -80,8 +80,8 @@ const SingleQue = (props) => {
             <input
               type="radio"
               name="option"
-              value="optionB"
-              checked={selectedAns[pageIndex] === "optionB"}
+              value="B"
+              checked={selectedAns[pageIndex] === "B"}
               onChange={handleOnChange}
             />
             {data[pageIndex].options.b}
@@ -89,8 +89,8 @@ const SingleQue = (props) => {
             <input
               type="radio"
               name="option"
-              value="optionC"
-              checked={selectedAns[pageIndex] === "optionC"}
+              value="C"
+              checked={selectedAns[pageIndex] === "C"}
               onChange={handleOnChange}
             />
             {data[pageIndex].options.c}
@@ -98,8 +98,8 @@ const SingleQue = (props) => {
             <input
               type="radio"
               name="option"
-              value="optionD"
-              checked={selectedAns[pageIndex] === "optionD"}
+              value="D"
+              checked={selectedAns[pageIndex] === "D"}
               onChange={handleOnChange}
             />
             {data[pageIndex].options.d}

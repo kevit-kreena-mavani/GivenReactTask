@@ -12,7 +12,8 @@
   color: green;
 }
 .report h1,
-h2 {
+.report h2,
+.report h3 {
   margin: 0;
   color: #240370;
   padding-bottom: 1rem;

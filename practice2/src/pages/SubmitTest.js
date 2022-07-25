@@ -5,12 +5,12 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 import styles from "./SubmitTest.module.css";
 
 const SubmitTest = (props) => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const [answers, getAnswers] = useState({});
-  const [isLoading , setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   let trueCount = 0;
 
-  const trueAnswers = ["optionD", "optionD", "optionC", "optionA", "optionA"];
+  const trueAnswers = ["D", "D", "C", "A", "A"];
 
   const fetchSubmittedAnswer = async () => {
     setIsLoading(true);
@@ -23,7 +23,7 @@ const navigate = useNavigate();
 
     getAnswers(filledAnswers);
 
-    setIsLoading(false); 
+    setIsLoading(false);
   };
   if (answers.length === trueAnswers.length) {
     answers.map(function (value, index) {
@@ -37,12 +37,14 @@ const navigate = useNavigate();
     fetchSubmittedAnswer();
   }, [SubmitTest]);
 
-  const closeHandler =() =>{
-    navigate('/user-detail')
-  }
+  console.log(props.userData)
+
+  const closeHandler = () => {
+    navigate("/user-detail");
+    props.reset();
+  };
   return (
     <Card>
-       
       <div className={styles.report}>
         <header>
           <h1>Report Card</h1>
@@ -50,24 +52,29 @@ const navigate = useNavigate();
             Score : <span className={styles.count}>{trueCount}</span> / 5
           </h2>
         </header>
+        <div>
+          <h3>Name : {props.userData.name}</h3>
+          <h3>Language : {props.userData.language}</h3>
+        </div>
 
-        {!isLoading &&answers.length === trueAnswers.length &&
+        {!isLoading &&
+          answers.length === trueAnswers.length &&
           answers.map((value, index) => {
             if (value === trueAnswers[index]) {
               return (
                 <p key={index + 1} className={styles.trueText}>
-                  Answer {index + 1} : {value}
+                  Question {index + 1} : {value}
                 </p>
               );
             } else {
               return (
                 <p key={index + 1} className={styles.falseText}>
-                  Answer {index + 1} : {value}
+                  Question {index + 1} : {value}
                 </p>
               );
             }
           })}
-          {isLoading && <LoadingSpinner />}
+        {isLoading && <LoadingSpinner />}
         <button onClick={closeHandler}>Close</button>
       </div>
     </Card>
