@@ -37,7 +37,6 @@ const SubmitTest = (props) => {
     fetchSubmittedAnswer();
   }, [SubmitTest]);
 
-  console.log(props.userData)
 
   const closeHandler = () => {
     navigate("/user-detail");
