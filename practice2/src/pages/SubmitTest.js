@@ -37,10 +37,8 @@ const SubmitTest = (props) => {
     fetchSubmittedAnswer();
   }, [SubmitTest]);
 
-
   const closeHandler = () => {
     navigate("/user-detail");
-    props.reset();
   };
   return (
     <Card>

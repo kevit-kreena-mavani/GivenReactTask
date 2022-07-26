@@ -41,7 +41,6 @@ const SingleQue = (props) => {
     setSelectedAns(stateToUpdate);
 
     if(stateToUpdate.length === 5){
-      console.log(stateToUpdate)
       fetch(
         "https://mcqtest-project-default-rtdb.firebaseio.com/filled-answers.json",
         {

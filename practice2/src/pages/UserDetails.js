@@ -21,7 +21,7 @@ const UserDetails = (props) => {
     fetch(
       "https://mcqtest-project-default-rtdb.firebaseio.com/user-info.json",
       {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify(UserData),
       }
     );
