@@ -1,0 +1,39 @@
+.auth {
+  margin: 3rem auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 3rem;
+}
+
+.auth label {
+  display: block;
+  text-align: left;
+}
+.auth input {
+  font: inherit;
+  color: gray;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid white;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+  margin: 1rem 0;
+}
+.auth input:focus {
+  outline: none;
+  font: inherit;
+}
+
+.toggle {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+.toggle:hover {
+  background-color: transparent;
+  color: #df8484;
+}
