@@ -3,9 +3,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding : 1rem ;   
-    border-bottom:1px solid #d1c6be;
-    color:#636060
+    padding : 0.7rem ;   
+    border-bottom:1px solid transparent;
+    background-color: #302e2e;
+    color:white
 }
 .header h1{
     margin: 0;
@@ -22,5 +23,6 @@
     margin:0 1rem;
 }
 .header li:hover{
-    color : #df8484 ; 
+
+    color : red; 
 }

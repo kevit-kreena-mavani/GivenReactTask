@@ -1,22 +1,30 @@
 .auth {
   margin: 3rem auto;
-  width: 50%;
+  width: 25%;
   text-align: center;
   border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
   padding: 3rem;
 }
-
+.auth h2{
+  margin-top: 0;
+  font-size: xx-large;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+hr{
+  margin-top: 2rem;
+}
 .auth label {
   display: block;
   text-align: left;
 }
-.auth input {
+.auth input , textarea{
   font: inherit;
   color: gray;
   border-radius: 4px;
   background-color: white;
-  border: 1px solid white;
+  border: 1px solid gray;
   width: 100%;
   text-align: left;
   padding: 0.25rem;
@@ -28,12 +36,12 @@
 }
 
 .toggle {
-  margin-top: 1rem;
+
   background-color: transparent;
-  color: white;
+  color: gray;
   border: none;
 }
 .toggle:hover {
   background-color: transparent;
-  color: #df8484;
+  color: #302d2d;
 }

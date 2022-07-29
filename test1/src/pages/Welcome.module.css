@@ -1,6 +1,5 @@
 .main {
   background-image: url("../images/tamanna-rumee-eD1RNYzzUxc-unsplash.jpg");
-  /* background-size: 100% 100%; */
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -18,5 +17,8 @@
   font-size: 4rem;
 }
 .main button {
+  background-color: white;
+  color: gray;
+  border-radius: 16px;
   float: right;
 }

@@ -15,17 +15,17 @@
 
 button {
   font: inherit;
-  background-color: white;
-  color: gray;
-  border: 1px solid gray;
+  background-color:#302e2e;
+  color: white;
+  border: 1px solid    #302e2e ;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  color : white ; 
-  background-color: #df8484;
+  color : white; 
+  background-color: gray;
 }
 
 @keyframes App-logo-spin {

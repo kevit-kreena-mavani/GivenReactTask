@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authActions } from "../store/auth";
+import { authActions } from "../../store/auth";
 import styles from "./Header.module.css";
 
 const Header = () => {
