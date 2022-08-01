@@ -27,6 +27,12 @@ button:hover {
   color : white; 
   background-color: gray;
 }
+button:disabled{
+  color: white;
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
 
 @keyframes App-logo-spin {
   from {

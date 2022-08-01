@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { authActions } from "../../store/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { authActions } from "../../reducers/auth";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const isAuth = useSelector((state) => state.isAuthenticated);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,9 +21,9 @@ const Header = () => {
       {isAuth ? (
         <nav>
           <ul>
-            <li>Cart</li>
-            <li>Profile</li>
-            <li>About Us</li>
+            <li><Link to='/cart'>Cart</Link></li>
+            <li><Link to='/profile'>Profile</Link></li>
+            <li><Link to='/about-us'>About Us</Link></li>
             <li>
               <button onClick={logoutHandler}>logout</button>
             </li>

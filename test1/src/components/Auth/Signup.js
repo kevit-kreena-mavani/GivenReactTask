@@ -1,6 +1,6 @@
 import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authActions } from "../../store/auth";
+import { authActions } from "../../reducers/auth";
 import Card from "../UI/Card";
 import styles from "./Auth.module.css";
 
@@ -63,7 +63,7 @@ const SignUp = () => {
         <input type="text" placeholder="Enter Full Name" />
         <br />
         <label>Email</label>
-        <input type="email" name="email" placeholder="Enter email" />
+        <input type="email" name="email" placeholder="Enter email" required/>
         <br />
         <label>Mobile number</label>
         <input type="number" minLength={10} placeholder="Enter Mobile number" />
@@ -73,6 +73,7 @@ const SignUp = () => {
           type="password"
           placeholder="At least 6 characters"
           name="password"
+          required
         />
         <br />
         <label>Enter Valid Address</label>
