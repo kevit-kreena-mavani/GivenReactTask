@@ -30,22 +30,17 @@
   justify-content: center;
   gap: 0.5rem;
 }
-
 .wrapper {
   display: grid;
   grid-template-columns: 2;
   grid-template-columns: 60% 40%;
   gap: 0.5rem;
 }
-
 .product header{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
-.product header > button{
-  margin-right: 20rem;
 }
 .productContent{
   padding: 2.5rem;

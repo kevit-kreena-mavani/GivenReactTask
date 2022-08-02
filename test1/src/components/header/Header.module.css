@@ -7,6 +7,9 @@
   border-bottom: 1px solid transparent;
   background-color: #302e2e;
   color: white;
+  overflow: hidden;
+  position:sticky;
+  top: 0;
 }
 .header h1 {
   margin: 0;
@@ -34,3 +37,10 @@
   color: red;
   text-decoration: none;
 }
+/* .wrapper{
+  position: fixed; 
+  top : 0 ; 
+  width: 100%;
+  overflow:hidden;
+  max-height: 100%;
+} */

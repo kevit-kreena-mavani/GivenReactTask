@@ -1,73 +1,27 @@
-import { Fragment, useCallback, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Card from "../UI/Card";
+import React, { useEffect, Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, ProductActions } from "../../reducers/product";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import styles from "./ProductList.module.css";
+import SingleProduct from "./SingleProduct";
 
-const ProductList = (props) => {
-  const navigate = useNavigate();
-  const [products, setProduct] = useState([]);
-  const [error, setError] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+function ProductList() {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.product.status);
+  const products = useSelector((state) => state.product.products);
+  const searchedProduct = useSelector((state) => state.product.searchedProduct);
+  const error = useSelector((state) => state.product.error);
 
-  const fetchProductHandler = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch("https://fakestoreapi.com/products");
-
-      if (!response.ok) {
-        throw new Error("Something went Wrong !");
-      }
-      const data = await response.json();
-
-      const loadedProducts = [];
-
-      for (const key in data) {
-        loadedProducts.push({
-          id: data[key].id,
-          title: data[key].title,
-          price: data[key].price,
-          image: data[key].image,
-          description: data[key].description,
-          category: data[key].category,
-        });
-      }
-      if (searchTerm.length === 0) {
-        setProduct(loadedProducts);
-      }
-
-      setIsLoading(false);
-    } catch (error) {
-      setError(error.message);
-    }
-  }, [searchTerm]);
   useEffect(() => {
-    fetchProductHandler();
-  }, [fetchProductHandler]);
-
-  const handleClick = (id) => {
-    navigate(`/product-detail/${id}`);
-
-    const clickedProduct = products.find((product) => product.id === id);
-    props.onSetProductDetail(clickedProduct);
-  };
+    if (status === "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [status, dispatch]);
 
   const searchHandler = (event) => {
-    setSearchTerm(event.target.value);
+    dispatch(ProductActions.SearchProduct(event.target.value));
   };
 
-  useEffect(() => {
-    if (searchTerm) {
-      const filteredItem = products.filter((product) =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      if(filteredItem.length===0){
-        setError("Items not Found")
-      }
-      setProduct(filteredItem);
-    }
-  }, [searchTerm, products]);
   return (
     <Fragment>
       <div className={styles.searchBar}>
@@ -78,32 +32,23 @@ const ProductList = (props) => {
         />
       </div>
 
-      <div className={styles[!isLoading ? "main-container" : ""]}>
-        {isLoading && <LoadingSpinner />}
-
-        {error && !isLoading && <p>{error}</p>}
-
-        {products.length !== 0 &&
-          !isLoading &&
-          !error &&
-          products.map((product) => (
-            <Card
-              className={styles.productCard}
-              key={product.id}
-              onProductClick={() => handleClick(product.id)}
-            >
-              <img src={product.image} alt="product title" />
-              <section>
-                <p>{product.title}</p>
-                <span>
-                  {"\u0024"} {product.price}
-                </span>
-              </section>
-              <button onClick ={() =>handleClick(product.id)}>Add to cart</button>
-            </Card>
-          ))}
+      <div className={styles[status === "loading" ? "" : "main-container"]}>
+        {status === "failed" && <p>{error}</p>}
+        {status === "success" && error && <p>{error}</p>}
+        {status === "loading" && <LoadingSpinner />}
+        {status === "success" &&
+        products.length !== 0 &&
+        !error &&
+        searchedProduct.length === 0
+          ? products.map((product) => (
+              <SingleProduct product={product} key={product.id} />
+            ))
+          : searchedProduct.map((product) => (
+              <SingleProduct product={product} key={product.id} />
+            ))}
       </div>
     </Fragment>
   );
-};
+}
+
 export default ProductList;

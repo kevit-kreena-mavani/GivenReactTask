@@ -1,0 +1,14 @@
+.wrapper{
+    margin: 2rem 4rem;
+    text-align: center;
+}
+.cartItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+.cartItem > header{
+    text-align: left;
+}

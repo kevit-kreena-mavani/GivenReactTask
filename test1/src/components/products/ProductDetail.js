@@ -1,10 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProductCarousel from "./ProductCarousel";
 import styles from "./ProductDetail.module.css";
 
-const ProductDetail = (props) => {
-  const { detailedProduct } = props;
+const ProductDetail = () => {
+  const detailedProduct = useSelector(state => state.product?.clickedProduct)
   const navigate = useNavigate();
 
   return (

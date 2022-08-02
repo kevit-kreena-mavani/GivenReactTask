@@ -1,0 +1,26 @@
+.productCard {
+  padding: 1.5rem;
+  min-width: 10rem;
+}
+.productCard img {
+  width: 13rem;
+  height: 14rem;
+}
+.productCard button {
+  float: right;
+  margin-bottom: 0.3rem;
+}
+.productCard section {
+  height: 5rem;
+  overflow: hidden;
+  position: relative;
+}
+.productCard p {
+  margin: 0;
+  padding: 0;
+}
+.productCard span {
+  bottom: 0;
+  position: absolute;
+  font-weight: bold;
+}

@@ -3,51 +3,25 @@
   background-color: dimgrey;
   padding: 1rem;
 }
-.searchBar input{
-    font: inherit;
-    width: 30rem;
-    height: 2rem;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background-color: white;
-    padding: 0.5rem;
+.searchBar input {
+  font: inherit;
+  width: 30rem;
+  height: 2rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: white;
+  padding: 0.5rem;
 }
-.searchBar input:focus{
-    outline: none;
+.searchBar input:focus {
+  outline: none;
 }
-.productCard{
-    padding: 1.5rem;
-    min-width: 10rem;
-}
-.productCard img{
-  width: 13rem;
-  height: 14rem;
-}
-.main-container{
-    margin : 2rem auto ; 
-    padding: 2rem;
-    width: 80%;
-    background-color: floralwhite;
-    display: grid;
-    grid-template-columns: repeat(4 , 23.56%);
-    gap : 1.7rem ; 
-    overflow: hidden;
-}
-.productCard button{
-    float: right;
-    margin-bottom: 0.3rem;
-}
-.productCard section{
-    height: 5rem;
-    overflow: hidden;
-    position: relative;
-}
-.productCard p{
-    margin: 0;
-    padding: 0;   
-}
-.productCard span{
-    bottom: 0;
-    position: absolute;
-    font-weight: bold;
+.main-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  width: 80%;
+  background-color: floralwhite;
+  display: grid;
+  grid-template-columns: repeat(4, 23.56%);
+  gap: 1.7rem;
+  overflow: hidden;
 }
