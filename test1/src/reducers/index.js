@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 
 import AuthReducer from "./auth";
 import ProductReducer from './product';
+import CartReducer from './cart'
 
 
 const persistConfig = {
@@ -14,7 +15,7 @@ const persistConfig = {
 // const persistedReducer = persistReducer(persistConfig, AuthReducer);
 
 const store = configureStore({
-  reducer: { auth: persistReducer(persistConfig, AuthReducer) , product : ProductReducer } ,
+  reducer: { auth: persistReducer(persistConfig, AuthReducer) , product : ProductReducer , cart : CartReducer } ,
 });
 
 export const persistor = persistStore(store);

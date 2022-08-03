@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../UI/Card";
 import styles from "./SingleProduct.module.css";
 import { ProductActions } from "../../reducers/product";
+import { CartActions } from "../../reducers/cart";
 
 const SingleProduct = (props) => {
   const { product } = props;
@@ -15,9 +16,9 @@ const SingleProduct = (props) => {
     navigate(`/product-detail/${id}`);
   };
 
-  const addToCartHandler = (id) => {
-    dispatch(ProductActions.findProduct(id));
-    navigate("/cart");
+  const addToCartHandler = () => {
+    dispatch(CartActions.addToCart(product))
+    // navigate("/cart");
   };
   return (
     <Card className={styles.productCard}>

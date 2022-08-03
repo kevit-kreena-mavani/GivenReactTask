@@ -1,12 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProductCarousel from "./ProductCarousel";
 import styles from "./ProductDetail.module.css";
+import { CartActions } from "../../reducers/cart";
 
 const ProductDetail = () => {
-  const detailedProduct = useSelector(state => state.product?.clickedProduct)
+  const detailedProduct = useSelector(state => state.product?.clickedProduct);
+  const dispatch = useDispatch()
   const navigate = useNavigate();
+
+  const addToCartHandler = () => {
+    dispatch(CartActions.addToCart(detailedProduct))
+  }
+
+  const removeFromCartHandler = () =>{
+    dispatch(CartActions.removeFromCart(detailedProduct))
+  }
 
   return (
     <div className={styles.product}>
@@ -24,8 +34,8 @@ const ProductDetail = () => {
             {"\u0024"} {detailedProduct.price}
           </p>
           <div className={styles.actions}>
-            <button>Add to cart</button>
-            <button>Remove from Cart</button>
+            <button onClick={addToCartHandler}>Add to cart</button>
+            <button onClick={removeFromCartHandler}>Remove from Cart</button>
           </div>
         </div>
       </section>

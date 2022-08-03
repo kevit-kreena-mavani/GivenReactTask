@@ -1,0 +1,35 @@
+.profile input {
+  background-color: aliceblue;
+  border: none;
+  font: inherit;
+  width: 70%;
+  margin-left: 1rem;
+}
+.profile label {
+  width: 15%;
+}
+.profile input:focus,
+textarea:focus {
+  outline: none;
+}
+.profile {
+  width: 50%;
+  margin: 4rem auto;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.profileForm div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0.8rem 0;
+}
+.profileForm button {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  background-color: #302e2e;
+  overflow: hidden;
+}
+.footer {
+  width: 70%;
+  margin: 1.5rem auto;
+  color: white;
+}
+
+.content {
+ font-family:Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.content section > p:hover {
+  text-decoration: underline;
+}
+.copyRightLine {
+  font: initial;
+  text-align: center;
+}

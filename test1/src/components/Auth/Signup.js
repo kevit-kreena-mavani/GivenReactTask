@@ -16,6 +16,9 @@ const SignUp = () => {
     const enteredData = {
       email: event.target?.email.value,
       password: event.target?.password.value,
+      name:event.target?.username.value , 
+      mobileNumber : event.target?.contact.value, 
+      address : event.target?.address.value
     };
 
     fetch(
@@ -46,8 +49,7 @@ const SignUp = () => {
         }
       })
       .then((data) => {
-        console.log(data);
-        dispatch(authActions.loggingIn())
+        dispatch(authActions.loggingIn(enteredData))
         navigate("/login");
       })
       .catch((err) => {
@@ -60,13 +62,13 @@ const SignUp = () => {
       <form onSubmit={formSubmitHandler}>
         <h2>Create Account</h2>
         <label>Your Name</label>
-        <input type="text" placeholder="Enter Full Name" />
+        <input type="text" name ="username" placeholder="Enter Full Name" />
         <br />
         <label>Email</label>
         <input type="email" name="email" placeholder="Enter email" required/>
         <br />
         <label>Mobile number</label>
-        <input type="number" minLength={10} placeholder="Enter Mobile number" />
+        <input type="number" minLength={10} placeholder="Enter Mobile number" name="contact" />
         <br />
         <label>Enter Password</label>
         <input
@@ -77,7 +79,7 @@ const SignUp = () => {
         />
         <br />
         <label>Enter Valid Address</label>
-        <textarea placeholder="Enter Address" />
+        <input placeholder="Enter Address" name="address"/>
         <br />
         <button type="submit">SignUp</button>
         <hr />

@@ -43,7 +43,7 @@ const Login = () => {
         }
       })
       .then((data) => {
-        dispatch(authActions.loggedIn());
+        dispatch(authActions.loggedIn(enteredData));
         navigate("/product-list");
       })
       .catch((err) => {

@@ -15,13 +15,18 @@
 .searchBar input:focus {
   outline: none;
 }
+.loading {
+  margin: 2rem 0;
+  height: 100rem;
+}
 .main-container {
   margin: 2rem auto;
   padding: 2rem;
   width: 80%;
-  background-color: floralwhite;
+  background-color: aliceblue;
   display: grid;
   grid-template-columns: repeat(4, 23.56%);
   gap: 1.7rem;
   overflow: hidden;
+  box-shadow: 0 10px 50px -5px  #c2d3e2;
 }

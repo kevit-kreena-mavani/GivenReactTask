@@ -19,7 +19,7 @@ hr{
   display: block;
   text-align: left;
 }
-.auth input , textarea{
+.auth input ,.auth textarea{
   font: inherit;
   color: gray;
   border-radius: 4px;

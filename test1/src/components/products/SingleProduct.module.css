@@ -1,6 +1,7 @@
 .productCard {
   padding: 1.5rem;
   min-width: 10rem;
+  transition: all 0.3s ease 0s;
 }
 .productCard img {
   width: 13rem;
@@ -23,4 +24,13 @@
   bottom: 0;
   position: absolute;
   font-weight: bold;
+}
+
+.productCard:hover {
+  -webkit-transform: scale(1.015) translateZ(0) perspective(1px);
+  transform: scale(1.015) translateZ(0) perspective(1px);
+  box-shadow: 0 10px 50px -5px #ccc;
+  transition: 0.3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }

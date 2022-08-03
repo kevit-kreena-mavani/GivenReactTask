@@ -5,6 +5,7 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,19 +17,21 @@ const Header = () => {
     dispatch(authActions.logout());
   };
   return (
-    <header className={styles.header}>
-      <h1>Shopping Site</h1>
+    <header className={styles.header} id="top">
+      <Link to="/product-list">
+        <h1>Shopping Site</h1>
+      </Link>
       {isAuth ? (
         <nav>
           <ul>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart">Cart ({totalQuantity})</Link>
             </li>
             <li>
               <Link to="/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/about-us">About Us</Link>
+              <a href="#">About Us</a>
             </li>
             <li>
               <button onClick={logoutHandler}>logout</button>

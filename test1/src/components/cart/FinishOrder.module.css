@@ -1,0 +1,13 @@
+.wrapper{
+    width: 50%;
+    margin: 2rem auto;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between; 
+}
+.wrapper button{
+    margin-right: 1rem;
+}
