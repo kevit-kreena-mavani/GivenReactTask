@@ -1,9 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import useProduct from "../hooks/useProduct";
 
 export const fetchProducts = createAsyncThunk(
   "product/fetchProducts",
-  async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
+  async (payload) => {
+    // const response = await fetch(
+    //   `https://fakestoreapi.com/products?limit=${payload}`
+    // );
+     const response = await fetch("https://dummyjson.com/products?limit=100");
     return response.json();
   }
 );
@@ -34,12 +38,14 @@ const ProductSlice = createSlice({
 
       if (items) {
         state.searchedProduct = items;
-      } 
-      const checkArray = items.map(item => item.title.toLowerCase().includes(payload.payload));
-      if(checkArray.every(item => item === false)){
+      }
+      const checkArray = items.map((item) =>
+        item.title.toLowerCase().includes(payload.payload)
+      );
+      if (checkArray.every((item) => item === false)) {
         state.error = "Items not Found";
-      }else{
-        state.error =""
+      } else {
+        state.error = "";
       }
     },
   },
@@ -50,6 +56,8 @@ const ProductSlice = createSlice({
     [fetchProducts.fulfilled]: (state, action) => {
       state.status = "success";
       state.products = state.products.concat(action.payload);
+      //state.hasMoreData = action.payload.length > 0;
+      // state.products = action.payload.products
     },
     [fetchProducts.rejected]: (state, action) => {
       state.status = "failed";

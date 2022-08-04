@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authActions } from "../../reducers/auth";
@@ -6,6 +6,7 @@ import styles from "./Profile.module.css";
 
 function Profile() {
   const userData = useSelector((state) => state.auth.userData);
+  const [successMsg , setSuccessMsg] = useState("")
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ function Profile() {
     };
 
     dispatch(authActions.updateUserData(enteredData));
+    setSuccessMsg("Changes Updated Successfully!")
   };
   const discardChangeHandler = () => {
     dispatch(authActions.discardChange());
@@ -63,6 +65,7 @@ function Profile() {
           Discard Changes
         </button>
       </form>
+      {successMsg && <h2>{successMsg}</h2>}
     </div>
   );
 }

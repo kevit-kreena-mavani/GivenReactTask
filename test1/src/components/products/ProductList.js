@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { fetchProducts, ProductActions } from "../../reducers/product";
 import Footer from "../layout/Footer";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -33,7 +34,9 @@ function ProductList() {
         />
       </div>
 
-      <div className={styles[status === "loading" ? "loading" : "main-container"]}>
+      <div
+        className={styles[status === "loading" ? "loading" : "main-container"]}
+      >
         {status === "failed" && <p>{error}</p>}
         {status === "success" && error && <p>{error}</p>}
         {status === "loading" && <LoadingSpinner />}
@@ -41,15 +44,14 @@ function ProductList() {
         products.length !== 0 &&
         !error &&
         searchedProduct.length === 0
-          ? products.map((product) => (
-              <SingleProduct product={product} key={product.id} />
-            ))
-          : searchedProduct.map((product) => (
-              <SingleProduct product={product} key={product.id} />
-            ))
-        }
+          ? products.map((product, index) => {
+              return <SingleProduct product={product} key={product.id} />;
+            })
+          : searchedProduct.map((product, index) => {
+              return <SingleProduct product={product} key={product.id} />;
+            })}
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 }

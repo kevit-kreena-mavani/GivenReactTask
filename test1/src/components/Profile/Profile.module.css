@@ -1,9 +1,10 @@
 .profile input {
-  background-color: aliceblue;
-  border: none;
+  background-color: white;
+  border: 1px solid gray;
   font: inherit;
   width: 70%;
   margin-left: 1rem;
+  padding: 0.2rem;
 }
 .profile label {
   width: 15%;
@@ -31,5 +32,5 @@ textarea:focus {
 }
 .profileForm button {
   margin-top: 1rem;
-  margin-right: 0.5rem;
+  margin-right: 2rem;
 }

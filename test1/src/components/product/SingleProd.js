@@ -1,31 +1,30 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Card from "../UI/Card";
-import styles from "./SingleProduct.module.css";
-//import { ProductActions } from "../../reducers/product";
+import styles from "./SingleProd.module.css";
 import { CartActions } from "../../reducers/cart";
 
-
-const SingleProduct =React.forwardRef( (props , ref) => {
-  
+const SingleProd = React.forwardRef((props, ref) => {
   const { product } = props;
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const productClickHandler = (id) => {
-    //  dispatch(ProductActions.detailedProduct(product));
-    navigate(`/product-detail/${id}`);
+    navigate(`/prod/${id}`);
   };
-
   const addToCartHandler = () => {
-    dispatch(CartActions.addToCart(product))
+    dispatch(CartActions.addToCart(product));
     // navigate("/cart");
   };
   return (
-    <Card className={styles.productCard}>
-      <div onClick={() => productClickHandler(product.id)} ref={ref}>
-        <img src={product.image} alt="product title" />
+    <div
+      className={styles.productCard}
+      key={product.id}
+      ref={ref}
+      onClick={() => productClickHandler(product.id)}
+    >
+      <div>
+        <img src={product.thumbnail} alt="product title" />
         <section>
           <p>{product.title}</p>
           <span>
@@ -41,8 +40,8 @@ const SingleProduct =React.forwardRef( (props , ref) => {
           Add to cart
         </button>
       </div>
-    </Card>
+    </div>
   );
 });
 
-export default SingleProduct;
+export default SingleProd;

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ProductDetail.module.css";
+import styles from "./Prod.module.css";
 import {
   CarouselProvider,
   Slider,

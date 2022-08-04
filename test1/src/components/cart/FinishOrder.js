@@ -18,13 +18,13 @@ function FinishOrder() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} >
       <div className={styles.content}>
         <div>
           <h2>Selected Items </h2>
           {cartItems.length !== 0 &&
             cartItems.map((item) => (
-              <div>
+              <div key ={item.id}> 
                 <p>
                   {item.title}
                   <span>X{item.quantity}</span>
