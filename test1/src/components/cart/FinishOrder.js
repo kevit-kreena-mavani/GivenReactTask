@@ -16,6 +16,9 @@ function FinishOrder() {
   const submitOrderHandler = () => {
     setSuccessMsg("Order Submitted Successfully!!");
   };
+  const changeInfoHandler = () =>{
+    navigate("/profile")
+  }
 
   return (
     <div className={styles.wrapper} >
@@ -37,8 +40,9 @@ function FinishOrder() {
         <div >
         <h2>Verify Your Information </h2>
           <p>Name : {userData.name}</p>
-          <p>mobileNumber : {userData.mobileNumber}</p>
-          <p>address : {userData.address}</p>
+          <p>Mobile Number : {userData.mobileNumber}</p>
+          <p>Address : {userData.address}</p>
+          <button onClick ={changeInfoHandler}>Change Information</button>
         </div>
       </div>
 
