@@ -18,7 +18,7 @@ const Header = () => {
   };
   return (
     <header className={styles.header} id="top">
-      <Link to="/product-list">
+      <Link to="/products">
         <h1>Shopping Site</h1>
       </Link>
       {isAuth ? (
@@ -29,9 +29,6 @@ const Header = () => {
             </li>
             <li>
               <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <a href="#">About Us</a>
             </li>
             <li>
               <button onClick={logoutHandler}>logout</button>

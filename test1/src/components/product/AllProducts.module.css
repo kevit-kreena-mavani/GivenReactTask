@@ -15,9 +15,7 @@
 .searchBar input:focus {
   outline: none;
 }
-.loading{
-  width : 100%
-}
+
 .main-container {
   margin: 1.5rem auto;
   padding: 2rem;

@@ -82,10 +82,13 @@ function AllProducts() {
           : filteredItems.map((product) => (
               <SingleProduct product={product} key={product.id} />
             ))}
+
         <div>{error && <p>{error}</p>}</div>
-        <div>{err && <p>{err}</p>}</div>
-        <div>{isLoading && <LoadingSpinner />}</div>
+        {isLoading && <LoadingSpinner />}
+        {err && <p>{err}</p>}
+        
       </div>
+      
 
       {!isLoading && <Footer />}
     </>

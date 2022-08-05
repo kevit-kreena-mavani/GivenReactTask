@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { CartActions } from "../../reducers/cart";
 import styles from "./FinishOrder.module.css";
 
 function FinishOrder() {
   const [successMsg, setSuccessMsg] = useState("");
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
@@ -14,6 +16,7 @@ function FinishOrder() {
     navigate(-1);
   };
   const submitOrderHandler = () => {
+    dispatch(CartActions.clearCart())
     setSuccessMsg("Order Submitted Successfully!!");
   };
   const changeInfoHandler = () =>{
