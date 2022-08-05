@@ -1,12 +1,12 @@
 .productCard {
-    padding: 1.5rem;
+    padding: 2rem;
     min-width: 10rem;
     background-color: white;
     transition: all 0.3s ease 0s;
   }
   .productCard img {
-    width: 13rem;
-    height: 14rem;
+    width: 15rem;
+    height: 16rem;
   }
   .productCard button {
     float: right;

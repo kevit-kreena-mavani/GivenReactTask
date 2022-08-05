@@ -14,25 +14,21 @@ function useProduct(skip, query) {
 
     axios({
       method: "GET",
-      url: `https://dummyjson.com/products`,
-      params: { skip: skip, limit: 20 },
+      url: `https://dummyjson.com/products?`,
+      params: { limit: skip },
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
         setIsLoading(false);
-        setProductData((prev) => {
-          return [...prev, ...res.data.products];
-        });
+        setProductData(res.data.products);
 
-        setHasMore(res.data.products.length > 0);
+        setHasMore(skip < 30);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
         setError(err.message);
       });
-
-    return () => cancel();
-  }, [skip, ]);
+  }, [skip]);
 
   return { isLoading, error, productData, hasMore };
 }

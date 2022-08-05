@@ -1,16 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import styles from "./SingleProd.module.css";
+import styles from "./SingleProduct.module.css";
 import { CartActions } from "../../reducers/cart";
 
-const SingleProd = React.forwardRef((props, ref) => {
+const SingleProduct = React.forwardRef((props, ref) => {
   const { product } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const productClickHandler = (id) => {
-    navigate(`/prod/${id}`);
+    navigate(`/product/${id}`);
   };
   const addToCartHandler = () => {
     dispatch(CartActions.addToCart(product));
@@ -44,4 +44,4 @@ const SingleProd = React.forwardRef((props, ref) => {
   );
 });
 
-export default SingleProd;
+export default SingleProduct;

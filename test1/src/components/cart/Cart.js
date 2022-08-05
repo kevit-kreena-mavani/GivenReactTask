@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const closeHandler = () => {
-    navigate("/prod");
+    navigate("/products");
   };
   const increaseQuantityHandler = (item) => {
     dispatch(CartActions.addToCart(item));

@@ -24,7 +24,7 @@ function FinishOrder() {
           <h2>Selected Items </h2>
           {cartItems.length !== 0 &&
             cartItems.map((item) => (
-              <div key ={item.id}> 
+              <div key ={item.id} className={styles.cartItems}> 
                 <p>
                   {item.title}
                   <span>X{item.quantity}</span>

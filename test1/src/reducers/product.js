@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import useProduct from "../hooks/useProduct";
+
 
 export const fetchProducts = createAsyncThunk(
   "product/fetchProducts",
-  async (payload) => {
+  async () => {
     // const response = await fetch(
     //   `https://fakestoreapi.com/products?limit=${payload}`
     // );

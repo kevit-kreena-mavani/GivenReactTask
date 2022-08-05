@@ -33,7 +33,10 @@ button:disabled{
   background-color: lightgray;
   cursor: not-allowed;
 }
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}
 
 @keyframes App-logo-spin {
   from {

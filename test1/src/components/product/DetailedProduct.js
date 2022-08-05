@@ -1,22 +1,21 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styles from "./DetailedProd.module.css";
+import styles from "./DetailedProduct.module.css";
 import ProductCarousel from "./ProductCarousel";
 import useProduct from "../../hooks/useProduct";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import { useDispatch } from "react-redux";
 import { CartActions } from "../../reducers/cart";
 
-const DetailedProd = () => {
+const DetailedProduct = () => {
   const { productData, isLoading } = useProduct();
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
-
   const detailedProduct = productData[+params.id - 1];
 
-
+  console.log(detailedProduct)
   const addToCartHandler = () =>{
     dispatch(CartActions.addToCart(detailedProduct))
   }
@@ -27,7 +26,7 @@ const DetailedProd = () => {
     <div className={styles.product}>
       {isLoading && <LoadingSpinner />}
       {detailedProduct && (
-        <div>
+        <div> 
           <header>
             <h2>{detailedProduct.category}</h2>
             <button onClick={() => navigate(-1)}>Close</button>
@@ -55,4 +54,4 @@ const DetailedProd = () => {
   );
 };
 
-export default DetailedProd;
+export default DetailedProduct;

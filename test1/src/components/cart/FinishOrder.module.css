@@ -11,3 +11,15 @@
 .wrapper button{
     margin-right: 1rem;
 }
+.content span{
+    margin : 0 1rem ; 
+}
+
+.cartItems{
+    background-color: white;
+    padding: 0.3rem;
+    margin: 1rem 0rem;
+}
+.cartItems p{
+    margin: 0.2rem;
+}

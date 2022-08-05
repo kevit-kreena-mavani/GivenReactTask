@@ -31,7 +31,7 @@ const CartSlice = createSlice({
         existingItem.quantity++;
         state.totalQuantity++;
       } else {
-        state.cartItems.push(cartItem);
+        state.cartItems= [...state.cartItems , cartItem];
         state.totalQuantity++;
       }
     },
@@ -60,44 +60,7 @@ const CartSlice = createSlice({
 
       }
     },
-    // increaseProductQuantity(state, payload) {
-    //   const { payload: product } = payload;
-
-    //   state.totalAmount = (
-    //     parseFloat(state.totalAmount) + parseFloat(product.price)
-    //   ).toFixed(2);
-
-    //   const itemIndex = state.cartItems.findIndex(
-    //     (item) => item.id === product.id
-    //   );
-
-    //   const existingItem = state.cartItems[itemIndex];
-
-    //   if (existingItem) {
-    //     existingItem.quantity++;
-    //     state.totalQuantity++;
-    //   }
-    // },
-    // decreaseProductQuantity(state, payload) {
-    //   const { payload: product } = payload;
-    //   state.totalQuantity--;
-    //   state.totalAmount = (
-    //     parseFloat(state.totalAmount) - parseFloat(product.price)
-    //   ).toFixed(2);
-    //   const itemIndex = state.cartItems.findIndex(
-    //     (item) => item.id === product.id
-    //   );
-
-    //   const existingItem = state.cartItems[itemIndex];
-
-    //   if (existingItem.quantity > 1) {
-    //     existingItem.quantity--;
-    //   } else if (existingItem.quantity === 1) {
-    //     state.cartItems = state.cartItems.filter(
-    //       (item) => item.id !== product.id
-    //     );
-    //   }
-    // },
+    
   },
 });
 export const CartActions = CartSlice.actions;

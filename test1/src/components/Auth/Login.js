@@ -44,7 +44,7 @@ const Login = () => {
       })
       .then((data) => {
         dispatch(authActions.loggedIn(enteredData));
-        navigate("/product-list");
+        navigate("/products");
       })
       .catch((err) => {
         alert(err.message);

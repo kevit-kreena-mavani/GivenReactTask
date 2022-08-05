@@ -52,6 +52,7 @@ function Profile() {
           <input
             defaultValue={userData.mobileNumber}
             type="number"
+            
             name="mobileNumber"
           />
         </div>
